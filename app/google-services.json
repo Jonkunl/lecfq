@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "578799724811",
+    "firebase_url": "https://unimelb-mobile-51.firebaseio.com",
+    "project_id": "unimelb-mobile-51",
+    "storage_bucket": "unimelb-mobile-51.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578799724811:android:908522d6c8553894b81a0e",
+        "android_client_info": {
+          "package_name": "com.unimelb.lecmore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "578799724811-6o72ro9aeug52a9dbut7ks1v2i8m8snc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrYW1iSWYiqEHS_TGlNZvSRcoEklj1Jt0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "578799724811-6o72ro9aeug52a9dbut7ks1v2i8m8snc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
