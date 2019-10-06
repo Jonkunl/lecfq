@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "578799724811-bcn7oqqqcr1igoibh146ap2p8bk3pl50.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.unimelb.lecmore",
+            "certificate_hash": "289c29bbc4809aa4bdeb44c112f5cfed41e9c233"
+          }
+        },
+        {
           "client_id": "578799724811-6o72ro9aeug52a9dbut7ks1v2i8m8snc.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
 
     <LinearLayout
@@ -25,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/custom_font"
-            android:text="@string/lec_more" />
+            android:text="@string/feedback_admin_title" />
 
         <View
             style="@style/Divider"
@@ -44,11 +43,38 @@
         app:layout_constraintTop_toBottomOf="@+id/title_box">
 
         <Button
-            android:id="@+id/feedback_admin_button"
+            android:id="@+id/view_feedback_button"
             style="@style/MainButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/feedback_admin" />
+            android:text="@string/view_feedbacks" />
+
+        <View
+            style="@style/Divider"
+            android:layout_width="120dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:id="@+id/new_feedback_button"
+            style="@style/MainButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/new_feedback" />
+
+        <View
+            style="@style/Divider"
+            android:layout_width="120dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:id="@+id/database_test"
+            style="@style/MainButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Other Functionalities" />
 
         <View
             style="@style/Divider"

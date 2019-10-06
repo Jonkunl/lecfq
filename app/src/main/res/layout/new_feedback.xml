@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/create_new_feedback_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="@string/create"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/public_switch" />
+
+    <EditText
+        android:id="@+id/lec_no_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/optional"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/Lecture_no_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Lecture_no_text" />
+
+    <EditText
+        android:id="@+id/lec_date_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintBottom_toBottomOf="@+id/lecture_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/lecture_date" />
+
+    <EditText
+        android:id="@+id/lec_note_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/optional"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/lecturer_note"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/lecturer_note" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="250sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/subejct_text"
+        app:layout_constraintTop_toBottomOf="@+id/new_feedback_title" />
+
+    <Switch
+        android:id="@+id/public_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:text="@string/public_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lecturer_note" />
+
+    <TextView
+        android:id="@+id/subejct_text"
+        style="@style/SectionItems"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/subject"
+        app:layout_constraintEnd_toStartOf="@+id/spinner2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_feedback_title" />
+
+    <TextView
+        android:id="@+id/new_feedback_title"
+        style="@style/FeedbackTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/create_new_feedback"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Lecture_no_text"
+        style="@style/SectionItems"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:text="@string/lecture_number"
+        app:layout_constraintEnd_toStartOf="@+id/lec_no_input"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subejct_text" />
+
+    <TextView
+        android:id="@+id/lecture_date"
+        style="@style/SectionItems"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:text="@string/lecture_date"
+        app:layout_constraintEnd_toStartOf="@+id/lec_date_input"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Lecture_no_text" />
+
+    <TextView
+        android:id="@+id/lecturer_note"
+        style="@style/SectionItems"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:text="@string/lecturer_note"
+        app:layout_constraintEnd_toStartOf="@+id/lec_note_input"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lecture_date" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
