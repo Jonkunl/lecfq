@@ -11,7 +11,6 @@ public class Question {
         this.question = question;
         this.answer = answer;
     }
-    public String getQuestion(){return question;}
     public void setAnswer(String answer){
         this.answer = answer;
     }

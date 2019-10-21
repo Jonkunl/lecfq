@@ -22,41 +22,47 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity
         implements View.OnClickListener{
         private Button mButton;
-        private ArrayList<Question> questions;
-        private String quest1;
-        private String quest2;
-    private DatabaseReference database;
+        private ArrayList<Question> questions = new ArrayList<>();
+        private String databasename = "unimelb-mobile-51";
+        private String subject = "comp1";
+        private String lecture = "lec1";
+        private String student = "13235";
+    private String question1= "1";
+    private String question2="ques";
+    private DatabaseReference database ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        questions = new ArrayList<Question>();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         database = FirebaseDatabase.getInstance().getReference();
-        database.child("unimelb-mobile-51").child("comp1").child("lec1").addValueEventListener(new ValueEventListener() {
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                questions = new ArrayList<Question>();
-                for (DataSnapshot noteDataSnapshot : dataSnapshot.getChildren()) {
-                    Question question = noteDataSnapshot.getValue(Question.class);
-                    questions.add(question);
 
+        database.child("questionaire").child(subject).child(lecture).child(student).addValueEventListener(new ValueEventListener() {
+
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot noteDataSnapshot : dataSnapshot.getChildren()) {
+                    Question q = noteDataSnapshot.getValue(Question.class);
+                    questions.add(q);
+                    Log.d("STATE",q.question);
                 }
+                TextView view1 = (TextView)findViewById(R.id.textView3);
+                TextView view2 = (TextView)findViewById(R.id.textView4);
+                view1.setText(questions.get(0).question);
+                view2.setText(questions.get(1).question);
+
 
             }
             public void onCancelled(DatabaseError error){
 
             }
         });
-        if(questions.size()>0) {
-            String question1 = questions.get(0).getQuestion();
-            String question2 = questions.get(1).getQuestion();
-        }
-        /*
-        TextView view1 = (TextView)findViewById(R.id.textView3);
-        TextView view2 = (TextView)findViewById(R.id.textView4);
-        view1.setText(question1);
-        view2.setText(question2);
 
-         */
+
+
+
+
         mButton = findViewById(R.id.submitB);
         mButton.setOnClickListener(this);
 
@@ -73,8 +79,8 @@ public class MainActivity extends AppCompatActivity
                 String answer1 = text.getText().toString();
                 EditText text2 = (EditText)findViewById(R.id.answer2);
                 String answer2 = text2.getText().toString();
-                database.child("comp1").child("lec1").child("question1").child("answer").setValue(answer1);
-                database.child("comp1").child("lec1").child("question2").child("answer").setValue(answer2);
+                database.child("questionaire").child(subject).child(lecture).child(student).child("question1").child("answer").setValue(answer1);
+                database.child("questionaire").child(subject).child(lecture).child(student).child("question2").child("answer").setValue(answer2);
 
         }
     }
