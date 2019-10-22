@@ -21,10 +21,38 @@ public class MainActivity extends AppCompatActivity {
                 FeedbackAdminMenu(view);
             }
         });
+
+        Button newStudentFeedback = findViewById(R.id.feedback_student_button);
+        newStudentFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                studentFeedback(view);
+            }
+        });
+
+
+        Button lecView = findViewById(R.id.lecture_view_button);
+        lecView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                lectureView(view);
+            }
+        });
+
     }
 
     public void FeedbackAdminMenu(View view){
         Intent intent = new Intent(this, FeedbackMenu.class);
+        this.startActivity(intent);
+    }
+
+    public void studentFeedback(View view){
+        Intent intent = new Intent(this, FeedbackStudent.class);
+        this.startActivity(intent);
+    }
+
+    public void lectureView(View view){
+        Intent intent = new Intent(this, LectureView.class);
         this.startActivity(intent);
     }
 

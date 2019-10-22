@@ -50,6 +50,20 @@
             android:layout_height="wrap_content"
             android:text="@string/feedback_admin" />
 
+        <Button
+            android:id="@+id/feedback_student_button"
+            style="@style/MainButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/feedback_student" />
+
+        <Button
+            android:id="@+id/lecture_view_button"
+            style="@style/MainButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lec_view" />
+
         <View
             style="@style/Divider"
             android:layout_width="120dp"
