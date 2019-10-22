@@ -34,8 +34,21 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".FeedbackMenu" />
         </activity>
+<<<<<<< HEAD
+
+        <activity android:name=".FeedbackStudent"
+            android:parentActivityName=".MainActivity">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+        <activity android:name=".FeedbackDateList"
+=======
         <activity
             android:name=".FeedbackDateList"
+>>>>>>> aaeef8dce45f1d5bc62e7502561cb5da19d35e2d
             android:parentActivityName=".FeedbackMenu">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
@@ -61,6 +74,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+<<<<<<< HEAD
+
+        <activity android:name=".LectureView"
+            android:parentActivityName=".MainActivity">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+=======
+>>>>>>> aaeef8dce45f1d5bc62e7502561cb5da19d35e2d
     </application>
 
 </manifest>

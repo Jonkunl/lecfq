@@ -77,7 +77,7 @@ public class FeedbackDateList extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.d("FirebaseDatasetHelper", "loadPost:onCancelled", databaseError.toException());
+                Log.d("FirebaseDataset", "loadPost:onCancelled", databaseError.toException());
             }
         });
 

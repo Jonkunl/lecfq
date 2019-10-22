@@ -15,6 +15,14 @@
     <string name="mobile_computing">COMP30018 Mobile Computing</string>
     <string name="mobile_comp">COMP90018 Mobile Computing</string>
     <string name="lec_more">Lecture More</string>
+<<<<<<< HEAD
+    <string name="feedback_admin">Feedback Admin</string>
+    <string name="date_hint">yyyy/mm/dd</string>
+    <string name="feedback_student">Feedback Student</string>
+    <string name="lec_view">Lecture View</string>
+    <string name="string_hi">Hi!</string>
+    <string name="feedback_lecture_selection_student">Please select a lecture session before continue</string>
+=======
     <string name="feedback_admin">Feedback_Admin</string>
     <string name="student_staff">Student / Staff</string>
     <string name="student">Student</string>
@@ -36,4 +44,5 @@
     <string name="do_questionare">Do questionare</string>
     <string name="enter_your_email_here">Enter your email here.</string>
     <string name="hint_info">Below is subjects you are currently into. <b><u>You need to select a subject before further operation.</u></b></string>
+>>>>>>> aaeef8dce45f1d5bc62e7502561cb5da19d35e2d
 </resources>
