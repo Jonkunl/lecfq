@@ -41,4 +41,7 @@
     <string name="do_questionare">Do questionare</string>
     <string name="enter_your_email_here">Enter your email here.</string>
     <string name="hint_info">Below is subjects you are currently into. <b><u>You need to select a subject before further operation.</u></b></string>
+    <string name="subject_code">Subject Code</string>
+    <string name="current_rating">Current Rating</string>
+    <string name="current_rating">Current Rating</string>
 </resources>
