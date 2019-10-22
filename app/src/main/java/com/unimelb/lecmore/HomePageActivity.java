@@ -123,7 +123,6 @@ public class HomePageActivity extends AppCompatActivity {
     }
 
     private void updateUI(){
-        LectureLab lectureLab = LectureLab.get(this);
         final List<Lecture> lectures = new ArrayList<>();
         DatabaseReference subRef = DatabaseManager.getReference("subjects/");
 
@@ -171,7 +170,7 @@ public class HomePageActivity extends AppCompatActivity {
 
     public static Intent newIntent(Context packageContext, String lectureId){
         //
-        Intent intent = new Intent(packageContext, LectureActivity.class);
+        Intent intent = new Intent(packageContext, LectureView.class);
         intent.putExtra(EXTRA_Lecture_ID, lectureId);
         return intent;
     }

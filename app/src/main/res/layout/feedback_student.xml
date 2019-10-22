@@ -8,7 +8,7 @@
     android:padding="10dp"
     tools:context=".MainActivity">
 
-<<<<<<< HEAD
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="394dp"
@@ -18,7 +18,8 @@
         android:textSize="20sp"
         android:textStyle="italic"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="75dp" />
+        tools:layout_editor_absoluteY="75dp"
+        tools:ignore="MissingConstraints" />
 
     <RatingBar
         android:id="@+id/ratingBar"
@@ -85,7 +86,7 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/etFeedback" />
-=======
+
 
     <LinearLayout
         android:id="@+id/title_box"
@@ -97,45 +98,6 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"/>
 
-        <TextView
-            android:id="@+id/feedback_admin_title"
-            style="@style/FeedbackTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/custom_font"
-            android:text="@string/lec_more" />
-
-        <View
-            style="@style/Divider"
-            android:layout_height="1dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="342dp"
-        android:layout_height="456dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="64dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_box">
-
-        <Button
-            android:id="@+id/feedback_admin_button"
-            style="@style/MainButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/feedback_admin" />
-
-        <View
-            style="@style/Divider"
-            android:layout_width="120dp"
-            android:layout_height="1dp"
-            android:layout_gravity="center"/>
->>>>>>> 222760d12a5f531b96f5762bbf2d720d05415a93
-
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
