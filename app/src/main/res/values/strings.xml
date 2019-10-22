@@ -15,10 +15,34 @@
     <string name="mobile_computing">COMP30018 Mobile Computing</string>
     <string name="mobile_comp">COMP90018 Mobile Computing</string>
     <string name="lec_more">Lecture More</string>
+<<<<<<< HEAD
     <string name="feedback_admin">Feedback Admin</string>
     <string name="date_hint">yyyy/mm/dd</string>
     <string name="feedback_student">Feedback Student</string>
     <string name="lec_view">Lecture View</string>
     <string name="string_hi">Hi!</string>
     <string name="feedback_lecture_selection_student">Please select a lecture session before continue</string>
+=======
+    <string name="feedback_admin">Feedback_Admin</string>
+    <string name="student_staff">Student / Staff</string>
+    <string name="student">Student</string>
+    <string name="staff">Staff</string>
+    <string name="username">Username:</string>
+    <string name="enter_your_username_here">Enter your username here.</string>
+    <string name="password">Password:</string>
+    <string name="enter_your_password_here">Enter your password here.</string>
+    <string name="loginBtn">Login</string>
+    <string name="have_not_registered_yet"><u>Have not registered yet? Do it now.</u></string>
+    <string name="school_email">School Email:</string>
+    <string name="confirm_password">Confirm password:</string>
+    <string name="enter_your_password_again_here">Enter your password again here.</string>
+    <string name="registerBtn">Register</string>
+    <string name="go">Go</string>
+    <string name="username_hint_empty">Username cannot be empty.</string>
+    <string name="password_hint_empty">Password cannot be empty.</string>
+    <string name="give_feedback">Give Feedback</string>
+    <string name="do_questionare">Do questionare</string>
+    <string name="enter_your_email_here">Enter your email here.</string>
+    <string name="hint_info">Below is subjects you are currently into. <b><u>You need to select a subject before further operation.</u></b></string>
+>>>>>>> aaeef8dce45f1d5bc62e7502561cb5da19d35e2d
 </resources>

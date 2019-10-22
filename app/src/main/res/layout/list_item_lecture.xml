@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="2dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/lecture_item_lectureID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:padding="4dp"
+        android:layout_alignParentEnd="true">
+    </TextView>
+
+    <TextView
+        android:id="@+id/lecture_item_lectureTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/lecture_item_lectureID"
+        android:textStyle="bold"
+        android:padding="4dp"
+        android:layout_toStartOf="@id/lecture_item_lectureID">
+    </TextView>
+
+    <TextView
+        android:id="@+id/lecture_item_lecturer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/lecture_item_lectureID"
+        android:layout_below="@id/lecture_item_lectureTitle"
+        android:padding="4dp"
+        android:layout_toStartOf="@id/lecture_item_lectureID" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#ffffff"/>
+</RelativeLayout>
