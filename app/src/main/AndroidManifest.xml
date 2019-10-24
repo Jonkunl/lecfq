@@ -25,6 +25,8 @@
 
 
         </activity>
+
+
         <activity
             android:name=".NewFeedbackAdmin"
             android:parentActivityName=".FeedbackMenu">
@@ -71,7 +73,8 @@
         </activity>
 
         <activity android:name=".LectureView"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="adjustPan">
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

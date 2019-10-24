@@ -4,6 +4,13 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/feedback_title_student"
+        style="@style/FeedbackTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/feedback" />
+
+    <TextView
         android:id="@+id/feedback_menu_title_student"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,7 +27,7 @@
         android:orientation="vertical">
 
         <ListView
-            android:id="@+id/date_list"
+            android:id="@+id/feedback_date_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

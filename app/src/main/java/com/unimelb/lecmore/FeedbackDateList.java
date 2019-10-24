@@ -3,14 +3,12 @@ package com.unimelb.lecmore;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -25,9 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 public class FeedbackDateList extends AppCompatActivity {
 
@@ -49,7 +45,7 @@ public class FeedbackDateList extends AppCompatActivity {
         mRef = mDatabase.getReference("feedback");
 
 
-        final ListView listView = (ListView) findViewById(R.id.date_list);
+        final ListView listView = findViewById(R.id.feedback_date_list);
 
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -62,7 +58,7 @@ public class FeedbackDateList extends AppCompatActivity {
                                 key.substring(5,7)+"/"+key.substring(1,5)));
                     }
 
-                    MyAdapter adapter = new MyAdapter(FeedbackDateList.this, datelist);
+                    MyAdapter adapter = new MyAdapter(getApplicationContext(), datelist);
                     listView.setAdapter(adapter);
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override

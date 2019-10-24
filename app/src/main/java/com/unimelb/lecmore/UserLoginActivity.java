@@ -72,9 +72,9 @@ public class UserLoginActivity extends AppCompatActivity {
                 if(type == Type.STUDENT){
                     mRef = DatabaseManager.getReference("students/");
                     usertype="student";
-                }else{
+                }else {
                     mRef = DatabaseManager.getReference("staff/");
-                    usertype="staff";
+                    usertype = "staff";
                 }
 
                 if(email.equals("")){

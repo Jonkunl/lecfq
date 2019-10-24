@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,10 @@ public class HomePageActivity extends AppCompatActivity {
     private TextView mWelcomeTextView;
     private TextView mInstructionTextView;
     private TextView mHintTextView;
+    private String usertype;
+    private String id;
+    private String name;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,9 +48,17 @@ public class HomePageActivity extends AppCompatActivity {
         mHintTextView = (TextView) findViewById(R.id.hintInfo);
 
         Intent intent = getIntent();
-        String usertype = intent.getStringExtra("usertype");
-        String id = intent.getStringExtra("id");
-        String name = intent.getStringExtra("name");
+        usertype = intent.getStringExtra("usertype");
+        id = intent.getStringExtra("id");
+        name = intent.getStringExtra("name");
+
+        if(savedInstanceState != null){
+            usertype = savedInstanceState.getString("usertype", "student");
+            name = savedInstanceState.getString("name", "unknown");
+            id = savedInstanceState.getString("id", "randomID");
+        }
+
+
 
         final String welcomeText = "Welcome to the Lecmore, " + name + "!";
         final String instructionText_student = "In Lecmore, you can either submit feedbacks or view feedbacks";
@@ -89,7 +102,7 @@ public class HomePageActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             //Toast.makeText(getActivity(), mLecture.getName() + " clicked!", Toast.LENGTH_SHORT).show();
-            Intent intent = HomePageActivity.newIntent(HomePageActivity.this, mLecture.getId());
+            Intent intent = HomePageActivity.newIntent(HomePageActivity.this, mLecture.getId(), usertype);
             startActivity(intent);
         }
     }
@@ -168,10 +181,19 @@ public class HomePageActivity extends AppCompatActivity {
         updateUI();
     }
 
-    public static Intent newIntent(Context packageContext, String lectureId){
+    @Override public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        Log.i("HomePageActivity", "onSaveInstanceState");
+        savedInstanceState.putString("name", name);
+        savedInstanceState.putString("id", id);
+        savedInstanceState.putString("usertype", usertype);
+    }
+
+    public static Intent newIntent(Context packageContext, String lectureId, String usertype){
         //
         Intent intent = new Intent(packageContext, LectureView.class);
         intent.putExtra(EXTRA_Lecture_ID, lectureId);
+        intent.putExtra("usertype", usertype);
         return intent;
     }
 }

@@ -43,5 +43,24 @@
     <string name="hint_info">Below is subjects you are currently into. <b><u>You need to select a subject before further operation.</u></b></string>
     <string name="subject_code">Subject Code</string>
     <string name="current_rating">Current Rating</string>
-    <string name="current_rating">Current Rating</string>
+    <string name="random_number">4</string>
+    <string name="outof_5"> / 5</string>
+    <string name="questionnaire">Questionnaire</string>
+    <string name="feedback">Feedback</string>
+    <string name="create_new_feedback_session">Create New Feedback</string>
+    <string name="selection_instruction">Or selection a lecture to view the feedbacks</string>
+    <string name="create_new_qs">Create New Questionnaire</string>
+    <string name="q_selection_instruction">Or select a lecture below to view answers from students</string>
+    <string name="lec_no_hint">double digit lecture number</string>
+    <string name="create_new_questionnaire">Create New Questionnaire</string>
+    <string name="one_label">1.</string>
+    <string name="create_text">CREATE</string>
+    <string name="enter_your_question_here">Enter your question here</string>
+    <string name="add_new">add new</string>
+    <string name="two_label">2.</string>
+    <string name="three_label">3.</string>
+    <string name="x">X</string>
+    <string name="question_label">Q.</string>
+    <string name="lec_topic">Lecture Topic</string>
+    <string name="feedback_admin_instruction">Please select a lecture session to view or create new feedbacks</string>
 </resources>

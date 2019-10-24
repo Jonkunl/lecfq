@@ -33,33 +33,8 @@ public class NewFeedbackAdmin extends AppCompatActivity {
 
         DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("admin/kunl/subjects");
 
-        mRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                ArrayList<String> subjects = new ArrayList<>();
-
-                for (DataSnapshot dataNode : dataSnapshot.getChildren()) {
-                    String key = dataNode.getKey();
-                    subjects.add(key);
-                }
-
-                final Spinner subjectSpinner = findViewById(R.id.subject_spinner);
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(),
-                        android.R.layout.simple_spinner_dropdown_item, subjects);
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                subjectSpinner.setAdapter(adapter);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.d("FirebaseDataset", "loadPost:onCancelled", databaseError.toException());
-            }
-        });
-
-
-
-        final Button createNewFeedback = findViewById(R.id.create_new_feedback_button);
+        TextView subjectInfo = findViewById(R.id.feedback_subject_id);
+        Button createNewFeedback = findViewById(R.id.create_new_feedback_button);
         createNewFeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,9 +46,6 @@ public class NewFeedbackAdmin extends AppCompatActivity {
     private void createFeedback(View view){
 
         DatabaseReference mRef = FirebaseDatabase.getInstance().getReference();
-
-        Spinner subjectSpinner = findViewById(R.id.subject_spinner);
-        String subject = subjectSpinner.getSelectedItem().toString();
 
         EditText lecNoTextBox = findViewById(R.id.lec_no_input);
         String lecNo = lecNoTextBox.getText().toString();
@@ -87,9 +59,9 @@ public class NewFeedbackAdmin extends AppCompatActivity {
         Switch publicSwitch = findViewById(R.id.public_switch);
         Boolean makeItPublic = publicSwitch.isChecked();
 
-        mRef.child(subject).child("lecNo").setValue(lecNo);
-        mRef.child(subject).child("lecNote").setValue(lecNote);
-        mRef.child(subject).child("Public").setValue(makeItPublic);
+        mRef.child(LectureView.lecId).child("lecNo").setValue(lecNo);
+        mRef.child(LectureView.lecId).child("lecNote").setValue(lecNote);
+        mRef.child(LectureView.lecId).child("Public").setValue(makeItPublic);
 
         Toast.makeText(getApplicationContext(), "Successfully created", Toast.LENGTH_LONG).show();
 
