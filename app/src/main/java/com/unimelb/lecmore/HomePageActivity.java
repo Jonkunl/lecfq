@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -32,6 +33,8 @@ public class HomePageActivity extends AppCompatActivity {
     private TextView mWelcomeTextView;
     private TextView mInstructionTextView;
     private TextView mHintTextView;
+    private Button mSignoutBtn;
+
     private String usertype;
     private String id;
     private String name;
@@ -46,6 +49,7 @@ public class HomePageActivity extends AppCompatActivity {
         mWelcomeTextView = (TextView) findViewById(R.id.welcomeInfo);
         mInstructionTextView = (TextView) findViewById(R.id.instructionInfo);
         mHintTextView = (TextView) findViewById(R.id.hintInfo);
+        mSignoutBtn = (Button) findViewById(R.id.signoutBtn);
 
         Intent intent = getIntent();
         usertype = intent.getStringExtra("usertype");
@@ -61,7 +65,7 @@ public class HomePageActivity extends AppCompatActivity {
 
 
         final String welcomeText = "Welcome to the Lecmore, " + name + "!";
-        final String instructionText_student = "In Lecmore, you can either submit feedbacks or view feedbacks";
+        final String instructionText_student = "In Lecmore, you can either submit feedbacks or view feedbacks.";
         final String instructionText_staff = "In Lecmore, you can either create feedback session or view feedback history";
 
         mWelcomeTextView.setText(welcomeText);
@@ -74,6 +78,14 @@ public class HomePageActivity extends AppCompatActivity {
 
 
         updateUI();
+
+        mSignoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomePageActivity.this, UserLoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private class LectureHolder extends RecyclerView.ViewHolder implements View.OnClickListener{

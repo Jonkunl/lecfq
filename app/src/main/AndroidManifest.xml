@@ -62,6 +62,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".FeedbackDateList" />
         </activity>
+	<activity
+            android:name=".ShakeActivity"
+            android:label="@string/app_name">
+        </activity>
         <activity
             android:name=".FeedbackMenu"
             android:parentActivityName=".MainActivity">
