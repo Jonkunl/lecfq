@@ -93,6 +93,9 @@ public class LectureViewLayoutFragment extends Fragment {
                             Dates item = (Dates) adapterView.getItemAtPosition(i);
                             String date = item.getDate();
 
+                            //YMH
+                            LectureView.lectureSession = i + 1;
+
                             //TODO integrating with database
                             Fragment random_tab = new FeedbackStudentFragment();
                             getActivity().getSupportFragmentManager()
@@ -139,6 +142,9 @@ public class LectureViewLayoutFragment extends Fragment {
 
                             //TODO validating the code
 
+                            //ymh
+                            LectureView.lectureSession = i + 1;
+
                             Dates item = (Dates) adapterView.getItemAtPosition(i);
                             String date = item.getDate();
 
@@ -161,63 +167,7 @@ public class LectureViewLayoutFragment extends Fragment {
         }
 
         else if (this.layout == R.layout.fragment_feedback_menu_admin) {
-            Button newFeedbackButton = view.findViewById(R.id.create_feedback_button);
-            newFeedbackButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Fragment AdminNewFeedback = new FeedbackAdminFragment();
-                    getActivity().getSupportFragmentManager()
-                            .beginTransaction()
-                            .replace(R.id.layout_fragment, AdminNewFeedback)
-                            .addToBackStack(null)
-                            .commit();
-                }
-            });
 
-            DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("feedback");
-            final ListView listView = view.findViewById(R.id.feedback_admin_date_list);
-
-            mRef.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    ArrayList<String> keyMap = new ArrayList<>();
-                    ArrayList<Dates> datelist = new ArrayList<>();
-
-                    for(DataSnapshot keyNode : dataSnapshot.getChildren()) {
-                        String key = keyNode.getKey();
-                        if (!keyMap.contains(key)) {
-                            keyMap.add(key);
-                            datelist.add(new Dates(R.drawable.dot, key.substring(7,9)+"/"+
-                                    key.substring(5,7)+"/"+key.substring(1,5)));
-                        }
-
-                        MyAdapter adapter = new MyAdapter(getActivity(), datelist);
-                        listView.setAdapter(adapter);
-                        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                                //TODO validating the code
-
-                                Dates item = (Dates) adapterView.getItemAtPosition(i);
-                                String date = item.getDate();
-
-                                Fragment random_tab = new FeedbackStudentFragment();
-                                getActivity().getSupportFragmentManager()
-                                        .beginTransaction()
-                                        .replace(R.id.layout_fragment, random_tab)
-                                        .addToBackStack(null)
-                                        .commit();
-                            }
-                        });
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                    Log.d("FirebaseDataset", "loadPost:onCancelled", databaseError.toException());
-                }
-            });
         }
 
         else if (this.layout == R.layout.fragment_question_menu_admin) {
