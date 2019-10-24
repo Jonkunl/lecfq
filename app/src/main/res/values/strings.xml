@@ -73,5 +73,9 @@
     <string name="enter_subject_code">Enter Full Subject Code Here</string>
     <string name="feedback_text">Feedback Text</string>
     <string name="search_back_to_subject_selection">Home</string>
-
+    <string name="write_your_answer_here">Write your answer here.</string>
+    <string name="submit">Submit</string>
+    <string name="view_answers_from_other_students">View answers from other students</string>
+    <string name="upvote_symbol">^</string>
+    <string name="answer_it_now">Answer it now</string>
 </resources>

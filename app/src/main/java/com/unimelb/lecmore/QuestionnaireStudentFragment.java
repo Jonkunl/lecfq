@@ -1,12 +1,11 @@
 package com.unimelb.lecmore;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,7 +15,6 @@ import androidx.fragment.app.Fragment;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -25,65 +23,72 @@ public class QuestionnaireStudentFragment extends Fragment {
 
     private Button mButton;
     private ArrayList<Question> questions = new ArrayList<>();
-    private String databasename = "unimelb-mobile-51";
-    private String subject = "comp1";
-    private String lecture = "lec1";
-    private String student = "13235";
-    private String question1 = "1";
-    private String question2 = "ques";
-    private DatabaseReference database;
+
+    private DatabaseReference mRef;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.questionnaire_student, container, false);
 
-        questions = new ArrayList<Question>();
-
-        database = FirebaseDatabase.getInstance().getReference();
-
-        database.child("questionaire").child(subject).child(lecture).child(student).addValueEventListener(new ValueEventListener() {
-
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                for (DataSnapshot noteDataSnapshot : dataSnapshot.getChildren()) {
-                    Question q = noteDataSnapshot.getValue(Question.class);
-                    questions.add(q);
-                    Log.d("STATE", q.question);
-                }
-                TextView view1 = (TextView) view.findViewById(R.id.textView3);
-                TextView view2 = (TextView) view.findViewById(R.id.textView4);
-                view1.setText(questions.get(0).question);
-                view2.setText(questions.get(1).question);
-
-
-            }
-
-            public void onCancelled(DatabaseError error) {
-
-            }
-        });
-
-        mButton = view.findViewById(R.id.submitB);
-        mButton.setOnClickListener(new View.OnClickListener() {
+        String subjectId = LectureView.lecId;
+        int lectureSession = LectureView.lectureSession;
+        mRef = DatabaseManager.getReference("subjects/" + subjectId + "/lectures/" + lectureSession + "/questionnaire/");
+        // ref.
+        mRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View view) {
-                submitQuestions(view);
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (!dataSnapshot.exists()) {
+                    System.out.println("Error in finding questionnaire in database.");
+                    return;
+                }
+                LinearLayout questionsLayout = (LinearLayout) view.findViewById(R.id.questionnaire_questions_layout);
+
+                for (DataSnapshot record : dataSnapshot.getChildren()) {
+
+                    String questionId = record.getKey();
+                    System.out.println("stf: "+questionId);
+                    String question = record.child("question").getValue().toString();
+                    int followerNum = Integer.parseInt(record.child("followers").getValue().toString());
+
+                    View questionView = inflater.inflate(R.layout.list_item_question, container, false);
+                    ((TextView)questionView.findViewById(R.id.upvotes_num)).setText(String.valueOf(followerNum));
+                    ((TextView)questionView.findViewById(R.id.question)).setText(question);
+                    Button answerItBtn = (Button) questionView.findViewById(R.id.answer_it_btn);
+                    answerItBtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Fragment ownAnswerFragment = new OwnAnswerFragment();
+                            Bundle args = new Bundle();
+                            args.putString("QUESTIONID",questionId);
+                            ownAnswerFragment.setArguments(args);
+                            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.layout_fragment, ownAnswerFragment ).addToBackStack(null).commit();
+                        }
+                    });
+
+                    Button upvoteBtn = (Button) questionView.findViewById(R.id.vote_up_button);
+                    upvoteBtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            int followerNum = Integer.parseInt(record.child("followers").getValue().toString());
+                            mRef.child(questionId).child("followers").setValue(followerNum + 1);
+                        }
+                    });
+
+                    LinearLayout answerItemLayout = questionView.findViewById(R.id.question_item_layout);
+                    if((questionsLayout).getChildCount() == 2)
+                        (questionsLayout).removeAllViews();
+                    questionsLayout.addView(answerItemLayout);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
 
         return view;
-    }
 
-    private void submitQuestions(View view) {
-        switch (view.getId()) {
-            case R.id.submitB:
-                EditText text = (EditText) view.findViewById(R.id.answer1);
-                String answer1 = text.getText().toString();
-                EditText text2 = (EditText) view.findViewById(R.id.answer2);
-                String answer2 = text2.getText().toString();
-                database.child("questionaire").child(subject).child(lecture).child(student).child("question1").child("answer").setValue(answer1);
-                database.child("questionaire").child(subject).child(lecture).child(student).child("question2").child("answer").setValue(answer2);
-        }
     }
 }

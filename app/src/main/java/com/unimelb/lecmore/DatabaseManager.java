@@ -8,7 +8,7 @@ public class DatabaseManager {
     private static FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
 
     public static DatabaseReference getReference(String path){
-        return mDatabase.getReference(path);
+        return mDatabase.getReference(path); // mDatabase.getReference("posts/postid/time")
     }
 
 

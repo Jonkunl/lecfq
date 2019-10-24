@@ -126,6 +126,7 @@ public class HomePageActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             //Toast.makeText(getActivity(), mLecture.getName() + " clicked!", Toast.LENGTH_SHORT).show();
+
             Intent intent = HomePageActivity.newIntent(HomePageActivity.this, mLecture.getId(), usertype, id, name);
             startActivity(intent);
         }
@@ -214,7 +215,7 @@ public class HomePageActivity extends AppCompatActivity {
     }
 
     public static Intent newIntent(Context packageContext, String lectureId, String usertype, String id, String name){
-        //
+
         Intent intent = new Intent(packageContext, LectureView.class);
         intent.putExtra(EXTRA_Lecture_ID, lectureId);
         intent.putExtra("usertype", usertype);
