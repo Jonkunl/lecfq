@@ -31,15 +31,22 @@ public class UserLoginActivity extends AppCompatActivity {
 
     private DatabaseReference mRef;
 
+    private String email;
+    private String id;
+    private String name;
+    private String usertype;
+
     enum Type {
         STUDENT,
         STAFF
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
+
+
 
         mLoginBtn = (Button) findViewById(R.id.loginBtn);
         mEmailText = (EditText) findViewById(R.id.emailValue);
@@ -65,10 +72,9 @@ public class UserLoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String email = mEmailText.getText().toString();
+                email = mEmailText.getText().toString();
                 final String password = mPasswordText.getText().toString();
                 Enum<Type> type = mStudentRadio.isChecked() ? Type.STUDENT : Type.STAFF;
-                final String usertype;
                 if(type == Type.STUDENT){
                     mRef = DatabaseManager.getReference("students/");
                     usertype="student";
@@ -101,15 +107,19 @@ public class UserLoginActivity extends AppCompatActivity {
                             return;
                         }
                         for(DataSnapshot record: dataSnapshot.getChildren()) {
-                            String id = record.getKey();
+                            id = record.getKey();
                             User user = record.getValue(User.class);
                             if(user.getPassword().equals(password)){
+                                name = user.getName();
                                 Toast.makeText(UserLoginActivity.this, "Successfully sign in.", Toast.LENGTH_SHORT).show();
+
                                 Intent intent = new Intent(UserLoginActivity.this, HomePageActivity.class);
                                 intent.putExtra("id", id);
                                 intent.putExtra("name", user.getName());
                                 intent.putExtra("usertype", usertype);
                                 startActivity(intent);
+
+                                
                             }else{
                                 Toast.makeText(UserLoginActivity.this, "Failed to sign in. Incorrect email.", Toast.LENGTH_SHORT).show();
                             }
@@ -126,4 +136,33 @@ public class UserLoginActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    protected void onStop() {
+
+        super.onStop();
+        Intent selfIntent = getIntent();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("email", email);
+        bundle.putString("id", id);
+        bundle.putString("name", name);
+        bundle.putString("usertype", usertype);
+        selfIntent.putExtras(bundle);
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null){
+            Intent intent = new Intent(UserLoginActivity.this, HomePageActivity.class);
+            intent.putExtra("id", bundle.getString("id"));
+            intent.putExtra("name", bundle.getString("name"));
+            intent.putExtra("usertype", bundle.getString("usertype"));
+            startActivity(intent);
+        }
+    }
+
 }
