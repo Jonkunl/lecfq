@@ -25,6 +25,9 @@ public class LectureView extends AppCompatActivity {
 
     static String userType;
     static String lecId;
+    static String userId;
+    static String userName;
+    static int lectureSession;
     private static final String STUDENT = "student";
     private static final String STAFF = "staff";
 
@@ -38,6 +41,8 @@ public class LectureView extends AppCompatActivity {
 
         lecId = getIntent().getStringExtra(EXTRA_Lecture_ID);
         userType = getIntent().getStringExtra("usertype");
+        userId = getIntent().getStringExtra("userId");
+        userName = getIntent().getStringExtra("userName");
 
         BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemReselectedListener
                 = new BottomNavigationView.OnNavigationItemSelectedListener() {

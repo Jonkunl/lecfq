@@ -1,35 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/create_question_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/create_new_qs" />
-
-    <View
-        style="@style/Divider"
-        android:layout_height="1dp" />
 
     <TextView
-        android:id="@+id/question_admin_instruction"
+        android:id="@+id/question_admin_instruction_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/q_selection_instruction" />
+        android:text="@string/question_admin_instruction"
+        android:gravity="center"/>
 
-    <LinearLayout
+    <Spinner
+        android:id="@+id/question_lecture_spinner"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:layout_gravity="center"
+        android:background="@drawable/spinner_border" />
+
+    <TextView
+        android:id="@+id/question_admin_subject_id"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/subject_code"
+        android:gravity="center"/>
 
-        <ListView
-            android:id="@+id/question_admin_date_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+    <TextView
+        android:id="@+id/question_admin_lec_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/lecture_number" />
 
-    </LinearLayout>
+    <TextView
+        android:id="@+id/question_admin_lec_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lecture_date"
+        android:gravity="center"
+        android:layout_marginTop="20dp"/>
 
+
+    <Button
+        android:id="@+id/question_admin_proceed_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/view_or_create" />
 
 </LinearLayout>

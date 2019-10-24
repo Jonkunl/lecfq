@@ -17,6 +17,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class FeedbackStudentFragment extends Fragment {
 
     RatingBar mRatingBar;
@@ -61,24 +64,21 @@ public class FeedbackStudentFragment extends Fragment {
             }
         });
 
-//        mFeedback.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-//            @Override
-//            public void onFocusChange(View view, boolean b) {
-//                if (!b) {
-//                    InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
-//                    inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
-//                }
-//            }
-//        });
-
         mSendFeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (mFeedback.getText().toString().isEmpty()) {
                     Toast.makeText(getContext(), "Please fill in feedback text box", Toast.LENGTH_LONG).show();
                 } else {
-                    mFeedback.setText("");
-                    mRatingBar.setRating(0);
+                    String comment = mFeedback.getText().toString();
+                    int rating = mRatingBar.getNumStars();
+
+                    DatabaseReference mRef = FirebaseDatabase.getInstance()
+                            .getReference("subjects/"+LectureView.lecId+"/lectures/"
+                                    +LectureView.lectureSession+"/feedback/"+LectureView.userId);
+
+                    mRef.child("comment").setValue(comment);
+                    mRef.child("rating").setValue(rating);
                     Toast.makeText(getContext(), "Thank you for sharing your feedback", Toast.LENGTH_SHORT).show();
                 }
 
@@ -89,32 +89,5 @@ public class FeedbackStudentFragment extends Fragment {
 
         return view;
 
-    }
-
-//    public void hideKeyboard(View view) {
-//        InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
-//        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
-//    }
-
-
-//        Button createFeedback = findViewById(R.id.feedback_admin_button);
-//        createFeedback.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                FeedbackAdminMenu(view);
-//            }
-//        });
-//}
-//
-//        public void FeedbackAdminMenu(View view){
-//            Intent intent = new Intent(this, FeedbackMenu.class);
-//            this.startActivity(intent);
-//        }
-
-
-
-
-
-    public void FeedbackAdminMenu(View view){
     }
 }

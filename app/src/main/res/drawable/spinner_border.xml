@@ -11,7 +11,7 @@
         </item>
 
         <item>
-            <bitmap android:src="@drawable/dropdownicon" android:gravity="center" />
+            <bitmap android:src="@drawable/dropdownicon" android:gravity="right|center" />
         </item>
     </layer-list>
 

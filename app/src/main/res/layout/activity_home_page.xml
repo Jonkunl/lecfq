@@ -37,16 +37,21 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/lectures_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:padding="4dp"/>
+        android:layout_height="263dp"
+        android:padding="4dp" />
 
 
     <Button
+        android:id="@+id/search_for_more_subject_button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="@string/sign_out"
+        android:text="@string/look_up_subject" />
+
+    <Button
         android:id="@+id/signoutBtn"
-        >
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_out">
 
     </Button>
 </LinearLayout>

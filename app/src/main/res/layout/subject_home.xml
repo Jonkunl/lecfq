@@ -58,7 +58,17 @@
                     android:textSize="@dimen/title_text_size"
                     android:textStyle="bold"
                     android:text="@string/outof_5" />
+
             </LinearLayout>
+
+            <Button
+                android:id="@+id/back_to_subject_selection_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="300dp"
+                android:text="@string/back_to_lecture" />
+
         </LinearLayout>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

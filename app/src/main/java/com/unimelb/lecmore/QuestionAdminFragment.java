@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,6 +18,8 @@ import androidx.fragment.app.Fragment;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,14 +37,16 @@ public class QuestionAdminFragment extends Fragment {
         visibleQs.put("2", false);
         visibleQs.put("3", false);
 
-        String q1;
-        String q2;
-        String q3;
-
         View view = inflater.inflate(R.layout.questionnaire_admin, container, false);
 
         TextView subjectId = view.findViewById(R.id.question_admin_subject_id);
         subjectId.setText(LectureView.lecId);
+
+        int lecId = LectureView.lectureSession;
+        TextView sessionId = view.findViewById(R.id.lecture_number_text);
+        sessionId.setText(String.valueOf(lecId));
+
+        EditText q1Text = view.findViewById(R.id.text_q1);
 
         LinearLayout q2Layout = view.findViewById(R.id.layout_q2);
         EditText q2Text = view.findViewById(R.id.text_q2);
@@ -95,13 +100,57 @@ public class QuestionAdminFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("feedback");
+                Log.w("i",String.valueOf(i));
 
-                switch (i) {
-                    case 1: {
+                DatabaseReference mRef = FirebaseDatabase
+                        .getInstance()
+                        .getReference("subjects/"+LectureView.lecId+"/lectures/"+LectureView.lectureSession);
 
-                    }
-                }
+               if (i == 1) {
+                   mRef.child("createdq").setValue(true);
+
+                   String q1 = q1Text.getText().toString();
+                   mRef.child("/questionnaire/1").child("followers").setValue("0");
+                   mRef.child("/questionnaire/1").child("question").setValue(q1);
+                   Toast.makeText(view.getContext(), "Successfully created Questionnaires", Toast.LENGTH_LONG)
+                           .show();
+               }
+               else if (i == 2) {
+
+                   mRef.child("createdq").setValue(true);
+
+                   String q1 = q1Text.getText().toString();
+                   String q2 = q2Text.getText().toString();
+
+                   mRef.child("/questionnaire/1").child("followers").setValue("0");
+                   mRef.child("/questionnaire/1").child("question").setValue(q1);
+
+                   mRef.child("/questionnaire/2").child("followers").setValue("0");
+                   mRef.child("/questionnaire/2").child("question").setValue(q2);
+                   Toast.makeText(view.getContext(), "Successfully created Questionnaires", Toast.LENGTH_LONG)
+                           .show();
+               }
+               else if (i == 3) {
+
+                   mRef.child("createdq").setValue(true);
+
+                   String q1 = q1Text.getText().toString();
+                   String q2 = q2Text.getText().toString();
+                   String q3 = q3Text.getText().toString();
+
+                   mRef.child("/questionnaire/1").child("followers").setValue("0");
+                   mRef.child("/questionnaire/1").child("question").setValue(q1);
+
+                   mRef.child("/questionnaire/2").child("followers").setValue("0");
+                   mRef.child("/questionnaire/2").child("question").setValue(q2);
+
+                   mRef.child("/questionnaire/3").child("followers").setValue("0");
+                   mRef.child("/questionnaire/3").child("question").setValue(q3);
+                   Toast.makeText(view.getContext(), "Successfully created Questionnaires", Toast.LENGTH_LONG)
+                           .show();
+               }
+
+                getActivity().getSupportFragmentManager().popBackStack();
             }
         });
 

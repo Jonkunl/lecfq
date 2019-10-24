@@ -34,6 +34,7 @@ public class HomePageActivity extends AppCompatActivity {
     private TextView mInstructionTextView;
     private TextView mHintTextView;
     private Button mSignoutBtn;
+    private Button mLookUpSubjects;
 
     private String usertype;
     private String id;
@@ -50,6 +51,8 @@ public class HomePageActivity extends AppCompatActivity {
         mInstructionTextView = (TextView) findViewById(R.id.instructionInfo);
         mHintTextView = (TextView) findViewById(R.id.hintInfo);
         mSignoutBtn = (Button) findViewById(R.id.signoutBtn);
+        mLookUpSubjects = findViewById(R.id.search_for_more_subject_button);
+
 
         Intent intent = getIntent();
         usertype = intent.getStringExtra("usertype");
@@ -86,6 +89,15 @@ public class HomePageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        mLookUpSubjects.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePageActivity.this, SubjectSearch.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private class LectureHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
@@ -114,7 +126,7 @@ public class HomePageActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             //Toast.makeText(getActivity(), mLecture.getName() + " clicked!", Toast.LENGTH_SHORT).show();
-            Intent intent = HomePageActivity.newIntent(HomePageActivity.this, mLecture.getId(), usertype);
+            Intent intent = HomePageActivity.newIntent(HomePageActivity.this, mLecture.getId(), usertype, id, name);
             startActivity(intent);
         }
     }
@@ -201,11 +213,13 @@ public class HomePageActivity extends AppCompatActivity {
         savedInstanceState.putString("usertype", usertype);
     }
 
-    public static Intent newIntent(Context packageContext, String lectureId, String usertype){
+    public static Intent newIntent(Context packageContext, String lectureId, String usertype, String id, String name){
         //
         Intent intent = new Intent(packageContext, LectureView.class);
         intent.putExtra(EXTRA_Lecture_ID, lectureId);
         intent.putExtra("usertype", usertype);
+        intent.putExtra("userId", id);
+        intent.putExtra("userName", name);
         return intent;
     }
 }

@@ -33,6 +33,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:orientation="horizontal">
 
@@ -40,39 +41,15 @@
                     android:id="@+id/question_admin_lec_no"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0.3"
                     android:text="@string/lecture_number" />
 
-                <EditText
-                    android:id="@+id/question_admin_lec_no_input"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:orientation="horizontal">
-
                 <TextView
-                    android:id="@+id/question_admin_lec_topic"
+                    android:id="@+id/lecture_number_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/lec_topic" />
-
-                <EditText
-                    android:id="@+id/question_admin_lec_topic_input"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
+                    android:text="@string/lecture_number" />
 
             </LinearLayout>
 

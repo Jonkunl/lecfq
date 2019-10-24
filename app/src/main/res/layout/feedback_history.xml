@@ -8,7 +8,7 @@
         style="@style/FeedbackTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/feedback_history" />
+        android:text="@string/feedbacks" />
 
     <TextView
         android:id="@+id/feedback_subject_id"

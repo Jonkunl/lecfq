@@ -1,11 +1,16 @@
 package com.unimelb.lecmore;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,46 +19,73 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class FeedbackAdminFragment extends Fragment {
+
+    private ArrayList<Feedback> feedback = new ArrayList<>();
+    private ArrayList<String> comments = new ArrayList<>();
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.new_feedback, container, false);
+        View view = inflater.inflate(R.layout.feedback_history, container, false);
 
-        TextView subjectInfo = view.findViewById(R.id.feedback_subject_id);
-        subjectInfo.setText(LectureView.lecId);
+        ListView listView = view.findViewById(R.id.feedback_date_list);
+        DatabaseReference mRef = FirebaseDatabase.getInstance().
+                getReference("subjects/"+LectureView.lecId+"/lectures/"+LectureView.lectureSession+"/feedback");
 
-        EditText lecNoTextBox = view.findViewById(R.id.lec_no_input);
-        EditText lecDateTextBox = view.findViewById(R.id.lec_date_input);
-        EditText lecNoteTextBox = view.findViewById(R.id.lec_note_input);
-        Switch publicSwitch = view.findViewById(R.id.public_switch);
-        Button createNewFeedback = view.findViewById(R.id.create_new_feedback_button);
+        TextView textView = view.findViewById(R.id.feedback_subject_id);
+        textView.setText(LectureView.lecId+ ": Lecture "+LectureView.lectureSession);
 
-        createNewFeedback.setOnClickListener(new View.OnClickListener() {
+        mRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View view) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot dataNode : dataSnapshot.getChildren()) {
+                    comments.add(dataNode.child("comment").getValue().toString());
+                }
 
-                DatabaseReference mRef = FirebaseDatabase.getInstance().getReference();
+                MyAdapter adapter = new MyAdapter(view.getContext(), comments);
+                listView.setAdapter(adapter);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                String lecNo = lecNoTextBox.getText().toString();
-                String lecDate = lecDateTextBox.getText().toString();
-                String lecNote = lecNoteTextBox.getText().toString();
-                Boolean makeItPublic = publicSwitch.isChecked();
-
-                mRef.child(LectureView.lecId).child("lecNo").setValue(lecNo);
-                mRef.child(LectureView.lecId).child("lecNote").setValue(lecNote);
-                mRef.child(LectureView.lecId).child("Public").setValue(makeItPublic);
-
-                Toast.makeText(getContext(), "Successfully created", Toast.LENGTH_LONG).show();
-
-                getActivity().getSupportFragmentManager().popBackStack();
             }
         });
 
+
+
         return view;
+    }
+
+    class MyAdapter extends ArrayAdapter<String> {
+        MyAdapter(Context context, ArrayList<String> comments) {
+            super(context, 0, comments);
+        }
+
+        @NonNull
+        @Override
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            String comment = getItem(position);
+
+            //check if an existing view is being reused, otherwise inflate the view
+            if (convertView == null) {
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.comment, parent, false);
+            }
+
+            //lookup view for data population
+            TextView mComment = convertView.findViewById(R.id.comment_text);
+
+            mComment.setText(comment);
+
+            return convertView;
+        }
     }
 }

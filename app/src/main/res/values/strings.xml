@@ -41,12 +41,12 @@
     <string name="do_questionare">Do questionare</string>
     <string name="enter_your_email_here">Enter your email here.</string>
     <string name="hint_info">Below is subjects you are currently into. <b><u>You need to select a subject before further operation.</u></b></string>
-<<<<<<< HEAD
     <string name="subject_code">Subject Code</string>
     <string name="current_rating">Current Rating</string>
     <string name="random_number">4</string>
     <string name="outof_5"> / 5</string>
     <string name="questionnaire">Questionnaire</string>
+    <string name="feedbacks">Feedbacks</string>
     <string name="feedback">Feedback</string>
     <string name="create_new_feedback_session">Create New Feedback</string>
     <string name="selection_instruction">Or selection a lecture to view the feedbacks</string>
@@ -64,7 +64,14 @@
     <string name="question_label">Q.</string>
     <string name="lec_topic">Lecture Topic</string>
     <string name="feedback_admin_instruction">Please select a lecture session to view or create new feedbacks</string>
-=======
+    <string name="question_admin_instruction">Please select a lecture session to view or create new questionnaires</string>
     <string name="sign_out">Sign out</string>
->>>>>>> 1b30b84c268f7701673c5de83b7a996ffb7bf71e
+    <string name="lec_note_hint">Lecture Notes (Optional)</string>
+    <string name="view_or_create">View / Create</string>
+    <string name="back_to_lecture">Back to Lecture Menu</string>
+    <string name="look_up_subject">Looking For Other Subjects?</string>
+    <string name="enter_subject_code">Enter Full Subject Code Here</string>
+    <string name="feedback_text">Feedback Text</string>
+    <string name="search_back_to_subject_selection">Home</string>
+
 </resources>
