@@ -8,6 +8,11 @@ public class Dates {
 
     }
 
+    /**
+     *
+     * @param dot
+     * @param feedback
+     */
     public Dates(int dot, String feedback){
         this.dot = dot;
         this.date = feedback;

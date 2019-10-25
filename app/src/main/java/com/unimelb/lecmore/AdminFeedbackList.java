@@ -35,6 +35,11 @@ public class AdminFeedbackList extends AppCompatActivity {
     private ArrayList<Feedback> feedback = new ArrayList<>();
     private ArrayList<String> keyMap = new ArrayList<>();
 
+    /**
+     * Method for reading feedback from cloud database
+     * the activity created.
+     * @param savedInstanceState parameter for storing states from previous activity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -78,6 +83,9 @@ public class AdminFeedbackList extends AppCompatActivity {
 
     }
 
+    /**
+     * The datapter method for viewing the feedbacks stored in list-
+     */
     class MyAdapter extends ArrayAdapter<Feedback> {
         MyAdapter(Context context, ArrayList<Feedback> feedbacks) {
             super(context, 0, feedbacks);
