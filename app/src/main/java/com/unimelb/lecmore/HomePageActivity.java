@@ -41,6 +41,10 @@ public class HomePageActivity extends AppCompatActivity {
     private String name;
 
     @Override
+    /**
+     * display welcome information, the instructions, the list of subjects  available, searching
+     * for a subject and the sign out.
+     */
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
@@ -107,6 +111,11 @@ public class HomePageActivity extends AppCompatActivity {
         private TextView mLectureIDTextView;
         private Lecture mLecture;
 
+        /**
+         * constructor of a data structure for storing and displaying the information, including
+         * the tile, lecture id and lecture text,
+         * @param itemView view for changing the text in the textview on the screen
+         */
         public LectureHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
@@ -115,6 +124,11 @@ public class HomePageActivity extends AppCompatActivity {
             mLecturerTextView = (TextView) itemView.findViewById(R.id.lecture_item_lecturer);
             mLectureIDTextView = (TextView) itemView.findViewById(R.id.lecture_item_lectureID);
         }
+
+        /**
+         * Method for binding two lectures into one
+         * @param lecture the object lecture to be combined with this lecture
+         */
 
         public void bindLecture(Lecture lecture) {
             mLecture = lecture;

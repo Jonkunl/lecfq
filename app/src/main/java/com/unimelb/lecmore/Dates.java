@@ -9,9 +9,9 @@ public class Dates {
     }
 
     /**
-     *
-     * @param dot
-     * @param feedback
+     * a data structure for storing date information for appropriate display
+     * @param dot int for storing the number of lecture
+     * @param feedback String for storing the date of a feedback
      */
     public Dates(int dot, String feedback){
         this.dot = dot;

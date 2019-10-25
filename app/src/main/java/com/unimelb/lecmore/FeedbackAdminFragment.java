@@ -34,6 +34,10 @@ public class FeedbackAdminFragment extends Fragment {
 
     @Nullable
     @Override
+    /**
+     * Method for retrieving the feedbacks from cloud database for the administrator side when the
+     * activity is created
+     */
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.feedback_history, container, false);
 
@@ -65,6 +69,9 @@ public class FeedbackAdminFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Adapter for display the comments of the feedback on the text views.
+     */
     class MyAdapter extends ArrayAdapter<String> {
         MyAdapter(Context context, ArrayList<String> comments) {
             super(context, 0, comments);

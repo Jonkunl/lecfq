@@ -35,6 +35,10 @@ public class FeedbackDateList extends AppCompatActivity {
     private ArrayList<Dates> datelist = new ArrayList<>();
     private ArrayList<String> keyMap = new ArrayList<>();
 
+    /**
+     * Method for retrieving date of the feedback created from cloud database
+     * @param savedInstanceState states of previous activity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -16,6 +16,10 @@ public class FeedbackMenu extends AppCompatActivity {
     DatabaseReference feedbackRef;
 
     @Override
+    /**
+     * Method for locating the activity for creating new feedbacks and viewing old feedbacks when
+     * the activity created.
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.feedback_menu);

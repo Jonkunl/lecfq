@@ -34,6 +34,11 @@ public class FeedbackStudent extends AppCompatActivity {
     Button mSendFeedback;
 
     @Override
+    /**
+     * Method for generating the scheme for student user to create a feedback, including rating
+     * and the comments of certain lecture.
+     */
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -43,7 +48,6 @@ public class FeedbackStudent extends AppCompatActivity {
         mRatingScale = findViewById(R.id.tvRatingScale);
         mFeedback = findViewById(R.id.etFeedback);
         mSendFeedback = findViewById(R.id.btnSubmit);
-
 
         mRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override

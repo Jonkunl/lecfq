@@ -29,6 +29,10 @@ public class FeedbackStudentFragment extends Fragment {
 
     @Nullable
     @Override
+    /**
+     * Method for generating the scheme for student user to create a feedback, including rating
+     * and the comments of certain lecture.
+     */
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.feedback_student, container, false);
 
