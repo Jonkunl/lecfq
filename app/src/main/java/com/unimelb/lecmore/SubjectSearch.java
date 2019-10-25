@@ -34,6 +34,10 @@ public class SubjectSearch extends AppCompatActivity {
     private Random rand;
 
     @Override
+    /**
+     * activity allows users to search for their subjects by inputting the code of the desired
+     * subjects and enter the feedback and questionnaire system of the subject.
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.subject_search);
@@ -126,6 +130,9 @@ public class SubjectSearch extends AppCompatActivity {
         super.onPause();
     }
 
+    /**
+     * activity for using sensor to detect the shake input from user.
+     */
     public static class ShakeEventListener implements SensorEventListener {
         private static final int MIN_FORCE = 10;
         private static final int MIN_DIRECTION_CHANGE = 3;

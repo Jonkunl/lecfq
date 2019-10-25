@@ -35,7 +35,10 @@ public class RegisterActivity extends AppCompatActivity {
         mEmailText = (EditText) findViewById(R.id.emailValue);
         mPasswordText = (EditText) findViewById(R.id.passwordValue);
         mStudentRadio = (RadioButton) findViewById(R.id.btnStudent);
-
+        /**
+         * Method for new users to register an account in this system, the inputs including username,
+         * password and email are required to be inputted into the edit text area.
+         */
         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
 
             @Override

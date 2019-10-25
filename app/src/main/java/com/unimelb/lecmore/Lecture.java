@@ -11,6 +11,13 @@ public class Lecture {
 
     }
 
+    /**
+     * the constructor of lecture, including the id, name and the lecturer of the lecture
+     * @param id String for storing the id of the lecture
+     * @param name String for storing the name of the lecture
+     * @param lecturer String for storing the lecturer of the lecture
+     */
+
     public Lecture(String id, String name, String lecturer) {
         mId = id;
         mName = name;

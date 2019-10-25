@@ -35,6 +35,9 @@ public class LectureView extends AppCompatActivity {
 
 
     @Override
+    /**
+     * Method for creating the view according to the type of the user,
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lecture_view);

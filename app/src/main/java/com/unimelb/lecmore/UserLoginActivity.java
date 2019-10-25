@@ -42,6 +42,9 @@ public class UserLoginActivity extends AppCompatActivity {
     }
 
     @Override
+    /**
+     * create the schem for users to input their email and password for login
+     */
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
@@ -66,7 +69,10 @@ public class UserLoginActivity extends AppCompatActivity {
         });*/
 
 
-
+        /*
+        when user submit their login information, check the information and redirect to home page
+        of user if the information is correct
+         */
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
 
             @Override

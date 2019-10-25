@@ -31,6 +31,10 @@ public class QuestionAdminFragment extends Fragment {
     private Map<String, Boolean> visibleQs;
     @Nullable
     @Override
+    /**
+     * generate the scheme for the questionnaire system of administrator, including creating a new
+     * questionnaires and view existing questionnaire and the answer.
+     */
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         visibleQs = new HashMap<>();

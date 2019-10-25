@@ -10,7 +10,9 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.widget.TextView;
 
-
+/**
+ * activity for using sensor to detect the shake input from user.
+ */
 public class ShakeActivity extends AppCompatActivity {
     private TextView shakeDevice;
     private SensorManager sensorManager;
@@ -31,11 +33,17 @@ public class ShakeActivity extends AppCompatActivity {
     }
 
     @Override
+    /**
+     * to resume the shake detector
+     */
     protected void onResume() {
         super.onResume();
         sensorManager.registerListener(shakeEventListener, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_UI);
     }
 
+    /**
+     * to pause the detect of shake
+     */
     @Override
     protected void onPause() {
         sensorManager.unregisterListener(shakeEventListener);
@@ -65,6 +73,9 @@ public class ShakeActivity extends AppCompatActivity {
         }
 
         @Override
+        /**
+         * methods to calculate the gravity direction to check whether there is a shake input.
+         */
         public void onSensorChanged(SensorEvent se) {
             float x = se.values[SensorManager.DATA_X];
             float y = se.values[SensorManager.DATA_Y];

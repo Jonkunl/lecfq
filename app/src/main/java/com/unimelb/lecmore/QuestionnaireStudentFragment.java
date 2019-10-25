@@ -28,6 +28,10 @@ public class QuestionnaireStudentFragment extends Fragment {
 
     @Nullable
     @Override
+    /**
+     * generate layouts for students to give answers for the questionnaires from their subjects.
+     * A function for students to vote up or vote down also provided.
+     */
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.questionnaire_student, container, false);
 

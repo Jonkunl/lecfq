@@ -138,6 +138,9 @@ public class HomePageActivity extends AppCompatActivity {
         }
 
         @Override
+        /**
+         * method for redirecting to the lecture clicked on
+         */
         public void onClick(View v) {
             //Toast.makeText(getActivity(), mLecture.getName() + " clicked!", Toast.LENGTH_SHORT).show();
 
@@ -156,6 +159,9 @@ public class HomePageActivity extends AppCompatActivity {
 
         @NonNull
         @Override
+        /**
+         * Method for listing all the lectures when the class created.
+         */
         public LectureHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             LayoutInflater layoutInflater = LayoutInflater.from(HomePageActivity.this);
             View view = layoutInflater.inflate(R.layout.list_item_lecture, parent, false);
@@ -169,11 +175,17 @@ public class HomePageActivity extends AppCompatActivity {
         }
 
         @Override
+        /**
+         * @return a int stores the size of List for storing lectures
+         */
         public int getItemCount() {
             return mLectures.size();
         }
     }
 
+    /**
+     * update the lectures stored in the List when the data in the cloud database changed.
+     */
     private void updateUI(){
         final List<Lecture> lectures = new ArrayList<>();
         DatabaseReference subRef = DatabaseManager.getReference("subjects/");
@@ -220,6 +232,11 @@ public class HomePageActivity extends AppCompatActivity {
         updateUI();
     }
 
+    /**
+     * method for setting content of the classs savedinstancestate.
+     * @param savedInstanceState Bundle for storing the information about the user, including
+     *                          name, id and user type.
+     */
     @Override public void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
         Log.i("HomePageActivity", "onSaveInstanceState");
@@ -228,6 +245,15 @@ public class HomePageActivity extends AppCompatActivity {
         savedInstanceState.putString("usertype", usertype);
     }
 
+    /**
+     * Method for inserting new users to lectures
+     * @param packageContext intent for storing current lecture views
+     * @param lectureId string for storing the id of the lecture
+     * @param usertype string for storing the type of the user
+     * @param id String for storing the id of user
+     * @param name String for storing the name of user
+     * @return the new intent after the insertion
+     */
     public static Intent newIntent(Context packageContext, String lectureId, String usertype, String id, String name){
 
         Intent intent = new Intent(packageContext, LectureView.class);

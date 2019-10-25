@@ -11,6 +11,14 @@ class User {
 
     }
 
+    /**
+     * Data structure for storing the information of user, including the password, email, gender
+     * and name
+     * @param password String for storing password
+     * @param email String for storing email
+     * @param gender String for storing gender
+     * @param name String for storing name
+     */
     public User(String password, String email, String gender, String name) {
         this.password = password;
         this.email = email;

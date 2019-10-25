@@ -27,6 +27,9 @@ import java.util.ArrayList;
 public class NewFeedbackAdmin extends AppCompatActivity {
 
     @Override
+    /**
+     * generate the view for creating feedback schemes for administrator
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_feedback);
@@ -43,6 +46,12 @@ public class NewFeedbackAdmin extends AppCompatActivity {
         });
     }
 
+    /**
+     * Method for administrators to create a new feedback session for certain lecture. Therefore,
+     * the information including lecture number, date, note and whether it is a public session
+     * gathered from EditText.
+     * @param view View for editing the components on screen
+     */
     private void createFeedback(View view){
 
         DatabaseReference mRef = FirebaseDatabase.getInstance().getReference();

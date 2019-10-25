@@ -35,6 +35,10 @@ public class OwnAnswerFragment extends Fragment {
 
     @Nullable
     @Override
+    /**
+     * Methods for allowing user to view the answers of certain questionnaire  by this user
+     * monitoring the data change of questionnaires stored int he database
+     */
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_own_answers, container, false);
         mSubmitBtn = (Button)view.findViewById(R.id.submitBtn);

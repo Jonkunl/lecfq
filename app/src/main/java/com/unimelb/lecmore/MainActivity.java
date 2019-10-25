@@ -10,6 +10,10 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     @Override
+    /**
+     * create 3 buttons for redirecting to activities including the feedback scheme for administrator,
+     * feedback scheme for student and the lecture view.
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);

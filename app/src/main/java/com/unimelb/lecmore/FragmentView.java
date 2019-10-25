@@ -19,7 +19,7 @@ public class FragmentView extends Fragment {
     @Nullable
     @Override
     /**
-     *
+     *method for creating view
      */
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
@@ -31,6 +31,13 @@ public class FragmentView extends Fragment {
         return view;
     }
 
+    /**
+     * Method for creating the fragments according to the feedback of students
+     * @param layout the int for storing the layout number
+     * @param lecId the String stores lecture id
+     * @param lecNumber the string stores lecture number
+     * @return the fragment produced
+     */
     static Fragment studentFeedback(int layout, String lecId, String lecNumber) {
         Fragment fragment = new FragmentView();
         Bundle bundle = new Bundle();

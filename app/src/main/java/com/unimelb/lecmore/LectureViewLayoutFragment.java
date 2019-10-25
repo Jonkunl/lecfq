@@ -53,6 +53,10 @@ public class LectureViewLayoutFragment extends Fragment {
 
     @Nullable
     @Override
+    /**
+     * generate different views for a certain lecture according to the type of the user and type
+     * of function the user using including questionnaire and feedback.
+     */
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if (this.getArguments() != null)
             this.layout = getArguments().getInt(LAYOUT_TYPE);
@@ -64,6 +68,11 @@ public class LectureViewLayoutFragment extends Fragment {
         return fragView;
     }
 
+    /**
+     * method for creating a new fragment with layout number
+     * @param layout int for storing layout number
+     * @return the new fragment created.
+     */
     static Fragment newInstance(int layout) {
         Fragment fragment = new LectureViewLayoutFragment();
         Bundle bundle = new Bundle();
@@ -74,6 +83,11 @@ public class LectureViewLayoutFragment extends Fragment {
 
     }
 
+    /**
+     * Generate the messages and buttons according to the type of layout user in, including the
+     * home page, feedback menu and questionnaire menu
+     * @param view View for gathering information and setting the messages to display
+     */
     private void initializeMenu(View view) {
 
         if (this.layout == R.layout.subject_home){

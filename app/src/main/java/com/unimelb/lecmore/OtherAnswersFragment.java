@@ -36,6 +36,10 @@ public class OtherAnswersFragment extends Fragment {
 
     @Nullable
     @Override
+    /**
+     * Methods for allowing users to view the answers of certain questionnaire from other users by
+     * monitoring the data change of questionnaires stored int he database
+     */
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_other_answers, container, false);
 
