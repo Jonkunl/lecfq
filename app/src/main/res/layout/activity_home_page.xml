@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:id="@+id/fragment_container"
     android:paddingTop="10dp"
+    android:background="#FEDBD0"
     android:orientation="vertical">
 
     <TextView
@@ -12,7 +13,9 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:padding="4dp"
-        android:textColor="#00BCD4"
+        android:background="#FEDBD0"
+        android:textColor="#ffffff"
+        android:typeface="serif"
         android:textSize="30sp">
 
     </TextView>
@@ -28,6 +31,7 @@
         android:id="@+id/hintInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:typeface="serif"
         android:text="@string/hint_info"
         android:padding="4dp">
 
@@ -38,6 +42,8 @@
         android:id="@+id/lectures_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="263dp"
+        android:background="#fdf8f0"
+        android:typeface="serif"
         android:padding="4dp" />
 
 
@@ -45,12 +51,18 @@
         android:id="@+id/search_for_more_subject_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FEEAE6"
+        android:textColor="#000000"
+        android:typeface="serif"
         android:text="@string/look_up_subject" />
 
     <Button
         android:id="@+id/signoutBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#442C2E"
+        android:typeface="serif"
+        android:textColor="#ffffff"
         android:text="@string/sign_out">
 
     </Button>

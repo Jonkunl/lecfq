@@ -4,6 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FEEAE6"
+    android:textColor="#ffffff"
+    android:typeface="serif"
+
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -16,6 +20,10 @@
             style="@style/FeedbackTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#FEDBD0"
+            android:textColor="#000000"
+            android:typeface="serif"
+
             android:text="@string/subject_code" />
 
         <LinearLayout
@@ -30,6 +38,10 @@
                 style="@style/FeedbackTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#FEDBD0"
+                android:textColor="#ffffff"
+                android:typeface="serif"
+
                 android:text="@string/current_rating" />
 
             <LinearLayout
@@ -66,6 +78,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="300dp"
+                android:background="#fdf8f0"
+                android:textColor="#000000"
+                android:typeface="serif"
                 android:text="@string/back_to_lecture" />
 
         </LinearLayout>

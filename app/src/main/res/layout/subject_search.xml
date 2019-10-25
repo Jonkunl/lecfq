@@ -2,6 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#FEEAE6"
+    android:textColor="#ffffff"
+    android:typeface="serif"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -36,6 +39,9 @@
         android:id="@+id/subject_result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#fdf8f0"
+        android:textColor="#000000"
+        android:typeface="serif"
         android:text="Button" />
 
     <TextView
@@ -51,5 +57,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:background="#fdf8f0"
+        android:textColor="#000000"
+        android:typeface="serif"
         android:text="@string/search_back_to_subject_selection" />
 </LinearLayout>

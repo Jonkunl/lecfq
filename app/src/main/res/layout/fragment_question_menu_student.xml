@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#FEDBD0"
+    android:textColor="#ffffff"
+    android:typeface="serif"
+
     android:layout_height="match_parent">
 
     <TextView
@@ -8,6 +12,8 @@
         style="@style/FeedbackTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FEDBD0"
+        android:typeface="serif"
         android:text="@string/questionnaire" />
 
     <TextView
@@ -28,6 +34,9 @@
 
         <ListView
             android:id="@+id/question_date_list"
+            android:background="#FEEAE6"
+            android:textColor="#ffffff"
+            android:typeface="serif"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
